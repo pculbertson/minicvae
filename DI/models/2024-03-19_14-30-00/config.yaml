@@ -1,0 +1,23 @@
+batches_per_epoch: 20
+cond_dim: 1
+decoder_layers:
+- 256
+- 256
+device: cuda
+encoder_layers:
+- 32
+- 32
+- 32
+- 32
+- 32
+epochs: 300
+gamma: 0.75
+latent_dim: 2
+lr: 0.001
+output_dim: 2
+prior_layers:
+- 256
+- 256
+save_epochs: 100
+step_size: 50
+val_epochs: 10
