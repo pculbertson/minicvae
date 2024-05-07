@@ -196,7 +196,5 @@ class CVAE(torch.nn.Module):
         prior_params = self.prior_network(cond)
         prior_mean, prior_logvar = torch.chunk(prior_params, 2, dim=-1)
         prior_variance = torch.exp(prior_logvar)
-        # prior_mean = torch.zeros_like(prior_mean)
-        # prior_variance = torch.ones_like(prior_variance)
 
         return prior_mean, prior_variance

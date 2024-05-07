@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from safety_filter.learning.models import CVAE
+from minicvae.models import CVAE
 
 
 def elbo_loss(model: CVAE, data: torch.tensor, cond: torch.tensor) -> torch.tensor:
@@ -101,23 +101,6 @@ def sample_outputs(model: CVAE, cond: torch.tensor, num_samples: int = 1000):
         pred_mean = pred_mean_expanded.mean(dim=0)
         pred_var_expanded = torch.diag_embed(pred_var_expanded)
 
-        # import time
-        # start = time.time()
-        # pred_var = torch.mean(
-        #     torch.stack(
-        #         [
-        #             pred_var_expanded[ii]
-        #             + pred_mean_expanded[ii].unsqueeze(-1)
-        #             @ pred_mean_expanded[ii].unsqueeze(-2)
-        #             for ii in range(num_samples)
-        #         ],
-        #         dim=0,
-        #     ),
-        #     dim=0,
-        # )
-        # end = time.time()
-
-        # print(f"Stack: {end - start}")
         pred_var = torch.mean(
             pred_var_expanded
             + pred_mean_expanded.unsqueeze(-1) * pred_mean_expanded.unsqueeze(-2),
