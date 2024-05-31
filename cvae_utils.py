@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from safety_filter.learning.models import CVAE
+from safety_filter.minicvae.models import CVAE
 
 
 def elbo_loss(model: CVAE, data: torch.tensor, cond: torch.tensor) -> torch.tensor:

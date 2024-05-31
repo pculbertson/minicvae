@@ -1,7 +1,7 @@
 import torch
 from torch.utils.data import Dataset
 import pandas as pd
-from safety_filter.learning.cvae_utils import planar_rotation, wrap_angle
+from safety_filter.minicvae.cvae_utils import planar_rotation, wrap_angle
 import numpy as np
 
 

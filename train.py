@@ -1,8 +1,8 @@
 import torch
 from torch.utils.data import DataLoader
-from safety_filter.learning.models import CVAE
-from safety_filter.learning.data import ADAMDataset
-from safety_filter.learning.cvae_utils import elbo_loss
+from safety_filter.minicvae.models import CVAE
+from safety_filter.minicvae.data import ADAMDataset
+from safety_filter.minicvae.cvae_utils import elbo_loss
 from dataclasses import dataclass, asdict
 from datetime import datetime
 import os
